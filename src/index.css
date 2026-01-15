@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 193 100% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 193 100% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 193 100% 13%;
+
+    /* Brick Red - Primary CTAs */
+    --primary: 4 48% 32%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Sage Green - Secondary actions */
+    --secondary: 168 21% 48%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Steel Blue - Text and tertiary */
+    --muted: 203 24% 55%;
+    --muted-foreground: 203 24% 35%;
+
+    /* Deep Navy - Accents */
+    --accent: 199 100% 13%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 203 24% 88%;
+    --input: 203 24% 88%;
+    --ring: 4 48% 32%;
+
+    --radius: 1rem;
+
+    /* Custom brand tokens */
+    --brick-red: 4 48% 32%;
+    --sage-green: 168 21% 48%;
+    --steel-blue: 203 24% 55%;
+    --deep-navy: 199 100% 13%;
+    --charcoal: 210 35% 7%;
+    
+    /* Gradient tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--deep-navy)) 0%, hsl(var(--steel-blue)) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(var(--brick-red)) 0%, hsl(4 48% 40%) 100%);
+    
+    /* Shadow tokens */
+    --shadow-card: 0 4px 20px -4px hsl(var(--steel-blue) / 0.15);
+    --shadow-hover: 0 8px 30px -4px hsl(var(--steel-blue) / 0.25);
+    
+    /* Transition tokens */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 210 35% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 199 100% 13%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 199 100% 13%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 4 48% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 168 21% 38%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 203 24% 25%;
+    --muted-foreground: 203 24% 65%;
+
+    --accent: 203 24% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 203 24% 20%;
+    --input: 203 24% 20%;
+    --ring: 4 48% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-cta {
+    background: var(--gradient-cta);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .transition-base {
+    transition: var(--transition-base);
+  }
+
+  /* Scroll animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-on-scroll {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Ensure containers have max-width */
+  .container {
+    max-width: 1200px;
+  }
+}
